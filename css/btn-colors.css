@@ -1,0 +1,114 @@
+/* Los colores de los botones */
+
+.aleatorio {
+    background-color: var(--type-aleatorio);
+    color: var(--text-white);
+}
+.normal {
+    background-color: var(--type-normal);
+    color: var(--text-black);
+}
+
+.fire {
+    background-color: var(--type-fire);
+    color: var(--text-black);
+}
+
+.water {
+    background-color: var(--type-water);
+    color: var(--text-white);
+}
+
+.grass {
+    background-color: var(--type-grass);
+    color: var(--text-black);
+}
+
+.electric {
+    background-color: var(--type-electric);
+    color: var(--text-black);
+}
+
+.ice {
+    background-color: var(--type-ice);
+    color: var(--text-black);
+}
+
+.fighting {
+    background-color: var(--type-fighting);
+    color: var(--text-white);
+}
+
+.poison {
+    background-color: var(--type-poison);
+    color: var(--text-white);
+}
+
+.ground {
+    background-color: var(--type-ground);
+    color: var(--text-black);
+}
+
+.flying {
+    background-color: var(--type-flying);
+    color: var(--text-black);
+}
+
+.psychic {
+    background-color: var(--type-psychic);
+    color: var(--text-black);
+}
+
+.bug {
+    background-color: var(--type-bug);
+    color: var(--text-black);
+}
+
+.rock {
+    background-color: var(--type-rock);
+    color: var(--text-black);
+}
+
+.ghost {
+    background-color: var(--type-ghost);
+    color: var(--text-white);
+}
+
+.dark {
+    background-color: var(--type-dark);
+    color: var(--text-white);
+}
+
+.dragon {
+    background-color: var(--type-dragon);
+    color: var(--text-white);
+}
+
+.steel {
+    background-color: var(--type-steel);
+    color: var(--text-black);
+}
+
+.fairy {
+    background-color: var(--type-fairy);
+    color: var(--text-black);
+}
+
+.especial, .generaciones {
+    /* background-color: transparent; */
+    filter: grayscale(00%);
+    border: 2px solid #fff;
+    color: var(--text-white);
+}
+
+.active {
+    /*Secundario box-shadow: 0 0 3px 4px #2a3049; */
+    box-shadow: 0 0 3px 4px #0af;
+
+    /* border: 2px solid var(--azul-pokemon); */
+    /* box-shadow: 0 0 3px 2px var(--azul-mar-nublado); */
+}
+
+.activeX {
+    filter: drop-shadow(0 0 8px #ff3a, 0 0 16px #f50);
+}

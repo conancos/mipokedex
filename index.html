@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="name" description="La pokédex como nunca antes la habías visto">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>Pokéapi reiniciada</title>
+</head>
+<body>
+    <header class="header-pokeapi">
+        <h1 class="logo"><img src="./assets/logo3.webp" alt="logo pokéapi" title="pokeapi.co"></h1>
+        <nav>
+            <ul><!-- COMMENTSSSSSSSSSSSS-->
+                <li class="tipos aleatorio"><button class="btnTipo" id="aleatorio">40 Al Azar</button></li>
+                <li class="tipos todos"><button class="btnTipo" id="todos">Todos</button></li>
+                <li class="tipos normal"><button class="btnTipo" id="normal">Normal</button></li>
+                <li class="tipos fighting"><button class="btnTipo" id="fighting">Lucha</button></li>
+                <li class="tipos flying"><button class="btnTipo" id="flying">Volador</button></li>
+                <li class="tipos poison"><button class="btnTipo" id="poison">Veneno</button></li>
+                <li class="tipos ground"><button class="btnTipo" id="ground">Tierra</button></li>
+                <li class="tipos rock"><button class="btnTipo" id="rock">Roca</button></li>
+                <li class="tipos bug"><button class="btnTipo" id="bug">Bicho</button></li>
+                <li class="tipos ghost"><button class="btnTipo" id="ghost">Fantasma</button></li>
+                <li class="tipos steel"><button class="btnTipo" id="steel">Acero</button></li>
+                <li class="tipos fire"><button class="btnTipo" id="fire">Fuego</button></li>
+                <li class="tipos water"><button class="btnTipo" id="water">Agua</button></li>
+                <li class="tipos grass"><button class="btnTipo" id="grass">Planta</button></li>
+                <li class="tipos electric"><button class="btnTipo" id="electric">Eléctrico</button></li>
+                <li class="tipos psychic"><button class="btnTipo" id="psychic">Psíquico</button></li>
+                <li class="tipos ice"><button class="btnTipo" id="ice">Hielo</button></li>
+                <li class="tipos dragon"><button class="btnTipo" id="dragon">Dragón</button></li>
+                <li class="tipos dark"><button class="btnTipo" id="dark">Siniestro</button></li>
+                <li class="tipos fairy"><button class="btnTipo" id="fairy">Hada</button></li>
+            </ul>
+            <ul>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen1">1ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen2">2ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen3">3ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen4">4ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen5">5ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen6">6ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen7">7ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen8">8ª Gen</button></li>
+                <li class="tipos generaciones"><button class="btnTipo" id="gen9">9ª Gen</button></li>
+                <li class="tipos especial"><button class="btnTipo" id="especial">Especial</button></li>
+            </ul>
+        </nav>
+    </header>
+        
+        <section class="loader" id="loader"></section>
+        
+        <main class="main" id="lista_pokemon"></main>
+        
+        <script src="./scripts/main.js" type="module"></script>
+        <script src="./scripts/css-js/active.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,403 @@
+@import url('./btn-colors.css');
+
+:root {
+    --azul-mar-nublado: #2a3049;
+    --azul-pokemon: #3761a8;
+    --amarillo-pokemon: #feca1b;
+    --fondo: radial-gradient(var(--azul-pokemon) 40%, var(--azul-mar-nublado));
+    /* --gris: #6f6f7f; */
+
+    --background-light: #e1f1f1;
+    --text-color-light: #070707;
+
+    --text-white: #edc;
+    --text-black: #070707;
+
+    /* --type-aleatorio: #af1535; */
+    --type-aleatorio: #ff0033;
+    --type-normal: #A8A878;
+    --type-fire: #F08030;
+    --type-water: #6890F0;
+    --type-grass: #78C850;
+    --type-electric: #F8D030;
+    --type-ice: #98D8D8;
+    --type-fighting: #C03028;
+    --type-poison: #A040A0;
+    --type-ground: #E0C068;
+    --type-flying: #A890F0;
+    --type-psychic: #F85888;
+    --type-bug: #A8B820;
+    --type-rock: #B8A038;
+    --type-ghost: #705898;
+    --type-dark: #705848;
+    --type-dragon: #7038F8;
+    --type-steel: #B8B8D0;
+    --type-fairy: #F0B6BC;
+
+    scrollbar-color: var(--amarillo-pokemon) #000;
+    scrollbar-width: auto;
+}
+
+@media (prefers-color-scheme: dark){
+    :root, main {
+        
+        background: transparent;
+        color: #edc;
+    }
+    body {
+        width: 100%;
+        min-height: 100svh;
+        background: var(--azul-pokemon);
+    }
+
+}
+@media (prefers-color-scheme: light) {
+    :root, html body {
+        background: #e1f1f1;
+    }
+
+    body main.main article.container-card  {
+        background: var(--azul-pokemon);
+    }
+
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow: auto !important;     */
+}
+
+body {
+    background: var(--azul-pokemon);
+    color: #070707;
+    font-family: 'Courier New', monospace;
+    min-height: 101svh;
+    scrollbar-color: var(--amarillo-pokemon) #000;
+    scrollbar-width: none;
+    
+}
+
+header.header-pokeapi {
+    background: var(--azul-mar-nublado);
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+
+    h1.logo {
+        width: 100%;
+        
+
+        & img {
+            margin: 1rem;
+            @media(width <= 425px) {
+                width: max(80%, 5rem)
+            }
+        }
+    }
+    
+    & nav {
+        width: 100%;
+        margin: 0 auto;
+        
+        & ul {
+            list-style: none;
+            padding: .5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+            /* border-top: 2px solid #feca1b;*/
+            border-bottom: 4px solid var(--marillo-pokemon);
+            /* box-shadow: 0 4px 120px -20px var(--azul-pokemon); */
+            & li/* :not(.especial, .generaciones) */{
+                border: 2px solid var(--azul-pokemon);
+            }
+            & li {
+                /* justify-content: space-between; No work */
+                /* color: inherit; */
+                /* cursor: pointer; */
+                border-radius: 7px/* 1vmax *//* 17px */;
+                
+                margin: 3px;
+                scale: .97;
+            
+                &:hover, &:hover button {
+                    filter: drop-shadow(0 0 2px #0ff);
+                    backdrop-filter: brightness(130%);
+                    
+                }
+
+                
+                & .btnTipo/* , .especial  */{
+                    color: inherit;
+                    min-width: 60px;
+                    border: 2px;
+                    border-radius: 5px;
+                    margin: 3px 2px;
+                    padding: 4px 8px;
+                    /* font-size: 1rem; */
+                    font-weight: 800;
+                    /* text-shadow: 0 0 2px ; */
+                    box-shadow: 0 0 8px 2px #000;
+                    scale: .96;
+                    background: transparent;
+                    /* transition: step-start 1 .2s; */
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    
+                    &:active {
+                        scale: .90;
+                        filter: drop-shadow(0 0 16px#000)
+                    }                    
+                }
+
+            }
+        }
+    }
+}
+
+.loader {
+               
+    width: 110px;
+    height: 110px;
+    background: #fff;
+    border-radius: 100%;
+    border: 6px solid #000;
+    box-shadow: inset -2px -2px 15px 2px #000;
+    position: fixed;
+    
+    bottom: 40%;
+    left: 50%;
+    /* transform: translate(-50px, -50px); */
+    margin-top: 0px;
+    margin-left: -55px;
+    overflow: hidden;
+    z-index: 101;
+    display: none;
+    animation: spin .8s linear 0s infinite;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: #fff;
+        border: 6px solid;
+        border-radius: 50%;
+        bottom: 36.9%;
+        right:  36.9%;
+        box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+        z-index: 102;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 3px);
+        left: -6px;
+        width: 100%;
+        height: 100%;
+        background: red;
+        border: 6px solid;
+        box-shadow: inset -4px 6px 12px 2px #300;
+    }
+}
+
+main.main {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    padding: 1.5rem;
+    border-radius: 10px;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 2rem;        
+    column-gap: 1rem;
+    margin: 3rem auto;
+    /* outline: solid 2px #3761a8; */
+    @media(width < 425px) {
+        /* grid-template-columns: 1fr; */
+        padding: 0;
+        margin: 3rem 0;
+        @media(width <= 320px) {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+    }
+
+    
+    & article.container-card {
+        padding: 1rem;
+        padding-bottom: 3px;
+        width: 97%;
+        max-width: 330px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        /* centrar props del pokémon */
+        border-radius: 12px;
+        border: 8px solid var(--amarillo-pokemon);
+        background: linear-gradient(90deg, var(--azul-mar-nublado), var(--azul-pokemon), var(--azul-mar-nublado));
+        box-shadow: 0 0 16px #ff06, inset 0 0 4px #000;
+
+        @media(width <= 320px) {
+            max-width: 85%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        & section {
+            width: 100%;
+            
+            & figure.container-img {
+                width: auto;
+                max-width: 250px;
+                height: auto;
+                margin-top: 1rem;
+                margin-inline: auto;
+                margin-bottom: .3rem;
+                width: /* 330px */auto;
+                /* border: 2px solid var(--azul-pokemon); */
+                border-radius: 8px;
+                box-shadow: inset 0 0 10px 4px #003, 0 0 10px -4px #fff;
+                background: var(--background-light);
+                border-top-width: 3px;
+                border-bottom-width: 3px;
+                border-left-width: 0px;
+                border-right-width: 0px;
+                border-style: solid;
+                border-image: linear-gradient(
+                    to right, 
+                    transparent,
+                    var(--azul-mar-nublado), 
+                    transparent
+                ) 100% 0%;
+                
+                & img {
+                    /* max-width: 200px; */
+                    width: 100%;
+                    height: 200px;
+                    transition: .4s;
+                    &:hover {
+                        cursor: grab;
+                        overflow: visible;
+                        scale: 1.1;
+                        z-index: 1002;
+                    }
+                    @media(width <= 320px) {
+                        max-height: 200px;
+                        height: auto;
+                    }
+                }
+            }
+
+            & div.habilidades {
+                padding-block: 2px;
+                padding-inline: .1rem;
+                margin: auto;
+                width: auto;
+                max-width: 250px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                
+            }
+
+            & div.tipos {
+                display: flex;
+                justify-content: center;
+                column-gap: 20px;
+                flex-wrap: wrap;
+                
+                @media(width < 320px) {
+                    width: 100%;
+                    font-size: 1rem;
+                    column-gap: 0px;
+                    @media(width <= 300px) {
+                        font-size: .8rem;
+                    }
+                }
+                
+                & p {
+                    /* min-width: 75px;
+                    padding: 2px;
+                    margin: .5rem;
+                    scale: .96;
+                    border: solid 2px #0ff;
+                    border-radius: 5px; */
+                    margin: 2px;
+                    padding: 4px 8px;
+                    font-weight: 800;
+                    min-width: 90px;
+                    border-radius: 15px;
+                    box-shadow: inset 0 0 6px 3px #000;
+                    border: 2px solid var(--background-light);
+                    /* font-size: 1rem; */
+                    /* text-shadow: 0 0 2px ; */
+                    /* box-shadow: 0 0 4px 0px #000; */
+                    scale: .96;
+                    
+                    &:hover {
+                        cursor: no-drop;
+                    }
+                }
+            }    
+            
+                
+        }
+
+        & footer {
+            text-align: center;
+
+            & section.grito-juego {
+                padding-block: .5rem;
+
+                & .grito {
+                    margin: 4px;
+                    padding: 5px;
+                    width: 65%;
+                    border-radius: 0vmax;
+                    background: linear-gradient(45deg, var(--azul-mar-nublado), var(--amarillo-pokemon), var(--azul-mar-nublado));
+                    border: 2px solid #0005;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: .4s;
+                    
+                    &:hover {
+                        box-shadow: 0 0 16px -4px var(--amarillo-pokemon);
+                        color: #fff;
+                    }
+                }
+            }
+            
+            
+            & section.medidas {
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    
+}
+    
+
+
+@keyframes spin {
+    0% {transform: rotate(0deg)}
+    100%{transform: rotate(360deg)}
+}
