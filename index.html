@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <title>Pokéapi reiniciada</title>
 </head>
-<body>
+<body id="body">
     <header class="header-pokeapi">
         <h1 class="logo"><img src="./assets/logo3.webp" alt="logo pokéapi" title="pokeapi.co"></h1>
         <nav>
@@ -53,7 +53,12 @@
         
         <main class="main" id="lista_pokemon"></main>
         
+        <a href="#body" class="anchor-top" id="anchor_top">
+            <span class="loader"></span>
+        </a>
+
         <script src="./scripts/main.js" type="module"></script>
+        <script src="./scripts/scroll-top.js" type="module"></script>
         <script src="./scripts/css-js/active.js"></script>
         
     </body>
