@@ -223,24 +223,64 @@ header.header-pokeapi {
 
 .anchor-top {
     opacity: 0;
-    right: 30px;
-    bottom: 30px;
-    width: 110px;
+    right: 20px;
+    bottom: 20px;
     color: black;
-    height: 110px;
     display: block;
     position: fixed;
     visibility: hidden;
     pointer-events: none;
-    transform: scale(0.8);
     transition: opacity 200ms linear, visibility 200ms linear;
-    .loader {
-        margin: 0;
-        left: auto;
-        bottom: auto;
-        display: block;
-        position: relative;
+    @media (width > 768px) {
+        right: 50px;
+        bottom: 50px;
     }
+    .legend {
+        left: 50%;
+        opacity: 0;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        text-align: center;
+        visibility: hidden;
+        bottom: calc(100% + 20px);
+        transform: translateX(-50%);
+        transition: opacity 200ms linear, visibility 200ms linear;
+        text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    img {
+        width: 50px;
+        height: auto;
+        display: block;
+        max-width: 100%;
+        animation: levitatingtail 6s ease-in-out infinite;
+        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+        @media (width > 768px) {
+            width: 70px;
+        }
+    }
+    &:hover {
+        .legend {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 400ms ease-in-out, visibility 400ms ease-in-out;
+        }
+        img {
+            animation-play-state: paused;
+        }
+    }
+}
+
+@keyframes levitatingtail {
+    0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
 }
 
 main.main {
