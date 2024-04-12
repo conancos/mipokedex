@@ -34,13 +34,16 @@
     [  ] BARRA DE BÚSQUEDA: en nav parte derecha.
     [  ] LOGO CONANCOS.DEV: en nav parte izquierda.
     [  ] FOOTER: en body "make it with ❤🙌🤙 Hazte con todos!"
+    [  ] CLICK EN LOADER, cambia de color => azul/blanco => rojo/blonco.
     [✅] MANEJO DE ERRORES: Para cuando no hay animación ó 2º grito.
     [✅] BOTONES: 1ª Generación, 2ª Gen. 3ª, 4ª, 5ª, 6ª, 7ª, 8ª, 9ª! y los 10001 al 10277
     [✅] SUBIR: a gitHub, y al servidor.
     [✅] EL RESPONSIVE, para TODOS los móviles, sin fallo.
-    [  ] CLICK EN LOADER, cambia de color => azul/blanco => rojo/blonco.
-
-
+    [✅] Deshacer los eventos de escucha en el forEach de cada botón pues consume memoria, usar Delegación de propagación en contenedor padre.
+    [✅] Construir función y meter las funciones de los botones como propiedades, así podré llamarlas por el nombre dinámicamente.
+    [  ] Construir el resto de funciones que representan las llamadas fetch para el resto de botones.
+    [  ] Configurar los gritos para las cards.
+  ❗ [ ] SEGURAMENTE, tendré que eliminar el archivo "aleatorio.js" desde gitHub, ya que le cambié el nombre a "funciones.js"
 
 
     //

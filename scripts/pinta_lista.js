@@ -12,7 +12,7 @@ export function pinta_lista(pokemonId) {
     let {id, name, img, grito1, grito2, tipos, ataque, defensa, animacion, altura, peso } = pokemon;
         
     
-    // Los tipos vienen en un arra de 1 o 2 elementos, tengo que pintarlos y separados.
+    // Falta arreglar los tipos que vienen en un array de 1 o 2 elementos, tengo que pintarlos y separados.
     let sacaLosTipos = tipos.map(tipo => {
         let tipoId = document.getElementById(`${tipo}`).innerHTML;
         return `<p class=${tipo}>${tipoId}</p>`

@@ -10,14 +10,5 @@ btnTipo.forEach(boton => {
         btnLi.forEach(li => li.classList.remove('active'));
         eve.target.parentElement.classList.add("active");
 
-        
-
-
-
-
     })
 });
-
-function btn_active() {
-
-}
