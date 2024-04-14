@@ -24,8 +24,10 @@ export function obtenerAnimacion(pokemon) {
         animacion = pokemon.sprites.other.showdown.back_default;
     } else if (pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default !== null){
         animacion = pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default;
-    } else if (pokemon.sprites.front_shiny){
-        animacion = pokemon.sprites.front_shiny
+    } else if (pokemon.sprites.other["official-artwork"].front_shiny !== null){
+        animacion = pokemon.sprites.other["official-artwork"].front_shiny;
+    } else if (pokemon.sprites.front_shiny !== null){
+        animacion = pokemon.sprites.front_shiny;
     } else {
         animacion = "./assets/Pikachu_HOME.webp"
     }
