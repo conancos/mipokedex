@@ -6,13 +6,10 @@
     --amarillo-pokemon: #feca1b;
     --fondo: radial-gradient(var(--azul-pokemon) 40%, var(--azul-mar-nublado));
     /* --gris: #6f6f7f; */
-
     --background-light: #e1f1f1;
     --text-color-light: #070707;
-
     --text-white: #edc;
     --text-black: #070707;
-
     /* --type-aleatorio: #af1535; */
     --type-aleatorio: #ff0033;
     --type-normal: #A8A878;
@@ -68,7 +65,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* overflow: auto !important;     */
 }
 
 html {
@@ -94,7 +90,7 @@ header.header-pokeapi {
     width: 100%;
     margin: 0 auto;
 
-    h1.logo {
+    & h1.logo {
         width: 100%;
         
 
@@ -109,16 +105,13 @@ header.header-pokeapi {
     & nav {
         width: 100%;
         margin: 0 auto;
-        
         & ul {
             list-style: none;
             padding: .5rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            
             border-bottom: 4px solid var(--marillo-pokemon);
-            
             & li/* :not(.especial, .generaciones) */{
                 border: 2px solid var(--azul-pokemon);
             }
@@ -142,18 +135,14 @@ header.header-pokeapi {
                     box-shadow: 0 0 8px 2px #000;
                     scale: .96;
                     background: transparent;
-                    /* transition: step-start 1 .2s; */
-                    
                     &:hover {
                         cursor: pointer;
                     }
-                    
                     &:active {
                         scale: .90;
                         filter: drop-shadow(0 0 16px#000)
                     }                    
                 }
-
             }
         }
     }
@@ -290,13 +279,10 @@ main.main {
     margin: 3rem auto;
     /* outline: solid 2px #3761a8; */
     @media(width < 425px) {
-        /* grid-template-columns: 1fr; */
         padding: 0;
         margin: 3rem 0;
         @media(width <= 320px) {
-            /* max-width: 100%;
-            margin: 0 auto;
-            padding: 0; */
+            font-size: .8rem;
         }
     }
 
@@ -428,7 +414,11 @@ main.main {
             text-align: center;
 
             & section.grito-juego {
-                padding-block: .5rem;
+                padding-block: 0;
+                @media(width <= 320px) {
+                    display: flex;
+                    justify-content: space-between;
+                }
 
                 & .grito {
                     margin: 4px;
@@ -440,7 +430,12 @@ main.main {
                     border-radius: 5px;
                     cursor: pointer;
                     transition: .4s;
-                    
+                    @media(width <= 320px) {
+                        border-radius: 20px;
+                        font-size: .6rem;
+                        width: 60px;
+                        height: 30px;
+                    }
                     &:hover {
                         box-shadow: 0 0 16px -4px var(--amarillo-pokemon);
                         color: #fff;
