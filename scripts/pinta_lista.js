@@ -67,6 +67,29 @@ export function pinta_lista(pokemonId) {
             event.target.src = img;
         })
     })
+
+    //Grito de guerra en el juego.
+    const botonGrito1 = article.querySelector('.grito1');
+    const botonGrito2 = article.querySelector('.grito2');
+    botonGrito1.addEventListener('click', () => {
+        const audioGrito1 = new Audio();
+
+        audioGrito1.src = botonGrito1.dataset.sound1;
+        audioGrito1.load();
+        audioGrito1.play();
+    });
+    botonGrito2.addEventListener('click', () => {
+        const audioGrito2 = new Audio();
+        
+        if (grito2 == null) {
+            botonGrito2.innerHTML = "No tiene";
+            return;
+        } else {
+            audioGrito2.src = botonGrito2.dataset.sound2;
+            audioGrito2.load();
+            audioGrito2.play();
+        }
+    });
 };
 
 // Toca ahora ir con el evento de escucha de los gritos. document.querySelector('.grito').onClick = grito = new Audio() y grito.play()
