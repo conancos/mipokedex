@@ -117,28 +117,19 @@ header.header-pokeapi {
             flex-wrap: wrap;
             justify-content: center;
             
-            /* border-top: 2px solid #feca1b;*/
             border-bottom: 4px solid var(--marillo-pokemon);
-            /* box-shadow: 0 4px 120px -20px var(--azul-pokemon); */
+            
             & li/* :not(.especial, .generaciones) */{
                 border: 2px solid var(--azul-pokemon);
             }
             & li {
-                /* justify-content: space-between; No work */
-                /* color: inherit; */
-                /* cursor: pointer; */
                 border-radius: 7px/* 1vmax *//* 17px */;
-                
                 margin: 3px;
                 scale: .97;
-            
                 &:hover, &:hover button {
                     filter: drop-shadow(0 0 2px #0ff);
                     backdrop-filter: brightness(130%);
-                    
-                }
-
-                
+                }                
                 & .btnTipo/* , .especial  */{
                     color: inherit;
                     min-width: 60px;
@@ -146,9 +137,8 @@ header.header-pokeapi {
                     border-radius: 5px;
                     margin: 3px 2px;
                     padding: 4px 8px;
-                    /* font-size: 1rem; */
                     font-weight: 800;
-                    /* text-shadow: 0 0 2px ; */
+                    text-shadow: 0 0 1px #000;
                     box-shadow: 0 0 8px 2px #000;
                     scale: .96;
                     background: transparent;
@@ -169,119 +159,120 @@ header.header-pokeapi {
     }
 }
 
-.loader {
-               
-    width: 110px;
-    height: 110px;
-    background: #fff;
-    border-radius: 100%;
-    border: 6px solid #000;
-    box-shadow: inset -2px -2px 15px 2px #000;
-    position: fixed;
+aside#aside {
     
-    bottom: 40%;
-    left: 50%;
-    /* transform: translate(-50px, -50px); */
-    margin-top: 0px;
-    margin-left: -55px;
-    overflow: hidden;
-    z-index: 101;
-    display: none;
-    animation: spin .8s linear 0s infinite;
-    &::before {
-        content: "";
-        position: absolute;
-        width: 14px;
-        height: 14px;
+    & .loader {
+        width: 110px;
+        height: 110px;
         background: #fff;
-        border: 6px solid;
-        border-radius: 50%;
-        bottom: 36.9%;
-        right:  36.9%;
-        box-shadow: 0 0 0 2px white, 0 0 0 4px black;
-        z-index: 102;
+        border-radius: 100%;
+        border: 6px solid #000;
+        box-shadow: inset -2px -2px 15px 2px #000;
+        position: fixed;
+        
+        bottom: 40%;
+        left: 50%;
+        /* transform: translate(-50px, -50px); */
+        margin-top: 0px;
+        margin-left: -55px;
+        overflow: hidden;
+        z-index: 101;
+        display: none;
+        animation: spin .8s linear 0s infinite;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border: 6px solid;
+            border-radius: 50%;
+            bottom: 36.9%;
+            right:  36.9%;
+            box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+            z-index: 102;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: calc(50% - 3px);
+            left: -6px;
+            width: 100%;
+            height: 100%;
+            background: red;
+            border: 6px solid;
+            box-shadow: inset -4px 6px 12px 2px #300;
+        }
     }
-    &::after {
-        content: "";
-        position: absolute;
-        top: calc(50% - 3px);
-        left: -6px;
-        width: 100%;
-        height: 100%;
-        background: red;
-        border: 6px solid;
-        box-shadow: inset -4px 6px 12px 2px #300;
+    
+    .anchor-top {
+        opacity: 0;
+        right: 20px;
+        bottom: 20px;
+        color: black;
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 200ms linear, visibility 200ms linear;
+        @media (width > 768px) {
+            right: 50px;
+            bottom: 50px;
+        }
+        .legend {
+            left: 50%;
+            opacity: 0;
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            text-align: center;
+            visibility: hidden;
+            bottom: calc(100% + 20px);
+            transform: translateX(-50%);
+            transition: opacity 200ms linear, visibility 200ms linear;
+            text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        img {
+            width: 50px;
+            height: auto;
+            display: block;
+            max-width: 100%;
+            animation: levitatingtail 6s ease-in-out infinite;
+            filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+            @media (width > 768px) {
+                width: 70px;
+            }
+        }
+        &:hover {
+            .legend {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 400ms ease-in-out, visibility 400ms ease-in-out;
+            }
+            img {
+                animation-play-state: paused;
+            }
+        }
     }
 }
-
-.scrolled .anchor-top {
+.scrolled #aside .anchor-top {
     opacity: 1;
     pointer-events: all;
     visibility: visible;
     transition: opacity 400ms ease-in-out, visibility 400ms ease-in-out;
-}
-
-.anchor-top {
-    opacity: 0;
-    right: 20px;
-    bottom: 20px;
-    color: black;
-    display: block;
-    position: fixed;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 200ms linear, visibility 200ms linear;
-    @media (width > 768px) {
-        right: 50px;
-        bottom: 50px;
-    }
-    .legend {
-        left: 50%;
-        opacity: 0;
-        color: white;
-        font-weight: bold;
-        position: absolute;
-        text-align: center;
-        visibility: hidden;
-        bottom: calc(100% + 20px);
-        transform: translateX(-50%);
-        transition: opacity 200ms linear, visibility 200ms linear;
-        text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    }
-    img {
-        width: 50px;
-        height: auto;
-        display: block;
-        max-width: 100%;
-        animation: levitatingtail 6s ease-in-out infinite;
-        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-        @media (width > 768px) {
-            width: 70px;
-        }
-    }
-    &:hover {
-        .legend {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 400ms ease-in-out, visibility 400ms ease-in-out;
-        }
-        img {
-            animation-play-state: paused;
-        }
-    }
-}
-
+}    
 @keyframes levitatingtail {
     0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
 }
+    
 
 main.main {
     position: relative;
@@ -303,9 +294,9 @@ main.main {
         padding: 0;
         margin: 3rem 0;
         @media(width <= 320px) {
-            max-width: 100%;
+            /* max-width: 100%;
             margin: 0 auto;
-            padding: 0;
+            padding: 0; */
         }
     }
 
@@ -324,10 +315,10 @@ main.main {
         border-radius: 12px;
         border: 8px solid var(--amarillo-pokemon);
         background: linear-gradient(90deg, var(--azul-mar-nublado), var(--azul-pokemon), var(--azul-mar-nublado));
-        box-shadow: 0 0 16px #ff06, inset 0 0 4px #000;
+        box-shadow: 0 0 4px #ff0, inset 0 0 4px #ff0;
 
         @media(width <= 320px) {
-            max-width: 85%;
+            /* max-width: 85%; */
             margin: 0 auto;
             text-align: center;
         }
@@ -464,13 +455,9 @@ main.main {
             }
         }
     }
-
     
 }
-    
-
 
 @keyframes spin {
-    0% {transform: rotate(0deg)}
-    100%{transform: rotate(360deg)}
+    to {transform: rotate(360deg)};
 }
