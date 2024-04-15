@@ -1,27 +1,21 @@
-import { POKEMONS_DATA, $lista_pokemon } from './main.js';
-
+import { POKEMONS_DATA } from './main.js';
+const $lista_pokemon = document.getElementById('lista_pokemon');
 export function pinta_lista(pokemonId) {
-    /* const $lista_pokemon = document.querySelector('#lista_pokemon'); */
     
     const pokemon = POKEMONS_DATA[pokemonId];
     if (!pokemon) {
         console.error('No se encontró ningún Pokémon con el ID ${pokemonId}')
         return;
     }
-
     let {id, name, img, grito1, grito2, tipos, ataque, defensa, animacion, altura, peso } = pokemon;
         
     
-    // Falta arreglar los tipos que vienen en un array de 1 o 2 elementos, tengo que pintarlos y separados.
-    let sacaLosTipos = tipos.map(tipo => {
+    let extraerTipos = tipos.map(tipo => {
         let tipoId = document.getElementById(`${tipo}`).innerHTML;
         return `<p class=${tipo}>${tipoId}</p>`
     })
-    
-    sacaLosTipos = sacaLosTipos.join('');
+    extraerTipos = extraerTipos.join('');
 
-
-    // 🔥 Y aquí 🎨 cada Pokémon 💥 ❗❗❗
     const article = document.createElement("article");
     article.classList.add("container-card");
     
@@ -40,7 +34,7 @@ export function pinta_lista(pokemonId) {
                 <p class="habilidad">${defensa} <strong>🛡</strong></p>
             </div>
             <div class="tipos">
-                ${sacaLosTipos}
+                ${extraerTipos}
             </div>
         </section>
         <footer>
@@ -57,8 +51,7 @@ export function pinta_lista(pokemonId) {
 
     $lista_pokemon.appendChild(article);
 
-    // :Over para la animación:
-    //const containerImg = article.querySelector('.container-img')
+  //:Over para la animación:
     const pokeImage = article.querySelector('.container-img img')
 
     pokeImage.addEventListener('mouseenter', (event) => {
@@ -68,19 +61,17 @@ export function pinta_lista(pokemonId) {
         })
     })
 
-    //Grito de guerra en el juego.
+  //Grito de guerra en el juego.
     const botonGrito1 = article.querySelector('.grito1');
     const botonGrito2 = article.querySelector('.grito2');
     botonGrito1.addEventListener('click', () => {
         const audioGrito1 = new Audio();
-
         audioGrito1.src = botonGrito1.dataset.sound1;
         audioGrito1.load();
         audioGrito1.play();
     });
     botonGrito2.addEventListener('click', () => {
         const audioGrito2 = new Audio();
-        
         if (grito2 == null) {
             botonGrito2.innerHTML = "No tiene";
             return;
@@ -91,5 +82,3 @@ export function pinta_lista(pokemonId) {
         }
     });
 };
-
-// Toca ahora ir con el evento de escucha de los gritos. document.querySelector('.grito').onClick = grito = new Audio() y grito.play()
