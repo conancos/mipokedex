@@ -369,6 +369,7 @@ main.main {
                 justify-content: center;
                 column-gap: 20px;
                 flex-wrap: wrap;
+                margin-bottom: 4px;
                 
                 @media(width < 320px) {
                     width: 100%;
