@@ -1,35 +1,35 @@
-import { POKEMONS_DATA, $lista_pokemon } from './main.js';
+import { POKEMONS_DATA, loader } from './main.js';
+export const $lista_pokemon = document.getElementById('lista_pokemon');
+
 
 export function pinta_lista(pokemonId) {
-    /* const $lista_pokemon = document.querySelector('#lista_pokemon'); */
-    
+
+    loader.style.display = "block"; // Parece que no se ve, después del de la introducción.
     const pokemon = POKEMONS_DATA[pokemonId];
     if (!pokemon) {
         console.error('No se encontró ningún Pokémon con el ID ${pokemonId}')
-        return;
-    }
-
-    let {id, name, img, grito1, grito2, tipos, ataque, defensa, animacion, altura, peso } = pokemon;
-        
+        return
+    };
+    let {id, name, img, grito1, grito2, tipos, ataque, defensa, animacion, altura, peso } = pokemon
+;
     
-    // Falta arreglar los tipos que vienen en un array de 1 o 2 elementos, tengo que pintarlos y separados.
+        // separamos los tipos
     let sacaLosTipos = tipos.map(tipo => {
         let tipoId = document.getElementById(`${tipo}`).innerHTML;
         return `<p class=${tipo}>${tipoId}</p>`
     })
-    
-    sacaLosTipos = sacaLosTipos.join('');
+    sacaLosTipos = sacaLosTipos.join('')
+;
 
-
-    // 🔥 Y aquí 🎨 cada Pokémon 💥 ❗❗❗
+        //Crea y da clase y el contenido, falta el appendChild() cuando termine de pintarlo.
     const article = document.createElement("article");
     article.classList.add("container-card");
-    
+    //💥
     article.innerHTML = 
         `
         <header class="header-card">
             <h2>${name.toUpperCase()}</h2>
-            <span># ${id}</span>
+            <span># ${id.toString().padStart(5, 0)}</span>
         </header>
         <section>
             <figure class="container-img">
@@ -55,10 +55,11 @@ export function pinta_lista(pokemonId) {
         </footer>
     `;
 
+    loader.style.display = "none"; // Parece que no se ve, después del de la introducción.
     $lista_pokemon.appendChild(article);
 
+    
     // :Over para la animación:
-    //const containerImg = article.querySelector('.container-img')
     const pokeImage = article.querySelector('.container-img img')
 
     pokeImage.addEventListener('mouseenter', (event) => {
@@ -67,8 +68,9 @@ export function pinta_lista(pokemonId) {
             event.target.src = img;
         })
     })
+;
 
-    //Grito de guerra en el juego.
+//Gritos de guerra en el juego.
     const botonGrito1 = article.querySelector('.grito1');
     const botonGrito2 = article.querySelector('.grito2');
     botonGrito1.addEventListener('click', () => {
@@ -78,6 +80,7 @@ export function pinta_lista(pokemonId) {
         audioGrito1.load();
         audioGrito1.play();
     });
+
     botonGrito2.addEventListener('click', () => {
         const audioGrito2 = new Audio();
         
