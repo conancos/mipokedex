@@ -99,9 +99,11 @@ $nav_container.addEventListener('click', (event) => {
         
         const type = event.target.id;
         console.log("Botón ID: ", type); //=> Por consola
-        const nombre_funcion = `btn_${type}`;
+        const pulsada = `btn_${type}`;
         
-        typeof btn_funciones[nombre_funcion] === 'function' ? btn_funciones[nombre_funcion]() : alert("Función del botón no encontrada", nombre_funcion);
+        typeof btn_funciones[pulsada] === 'function'
+         ? btn_funciones[pulsada]()
+          : alert("Función del botón no encontrada", pulsada);
     }
 })
 
