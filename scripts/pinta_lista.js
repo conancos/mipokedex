@@ -14,11 +14,11 @@ export function pinta_lista(pokemonId) {
 ;
     
         // separamos los tipos
-    let sacaLosTipos = tipos.map(tipo => {
+    let extraerTipos = tipos.map(tipo => {
         let tipoId = document.getElementById(`${tipo}`).innerHTML;
         return `<p class=${tipo}>${tipoId}</p>`
     })
-    sacaLosTipos = sacaLosTipos.join('')
+    extraerTipos = extraerTipos.join('')
 ;
 
         //Crea y da clase y el contenido, falta el appendChild() cuando termine de pintarlo.
