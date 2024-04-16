@@ -3,8 +3,9 @@ import {btn_funciones} from "./funciones.js";
 
 const URL = "https://pokeapi.co/api/v2/pokemon/";
 const POKEMONS_DATA = [];
-
-const loader = document.getElementById('loader');
+export const loader = document.getElementById('loader');
+//const $btn_tipo = document.querySelector('.btnTipo');
+//const $btn_container = document.querySelectorAll('.btn-container');
 const $nav_container = document.querySelector('#nav-container');
 
 class Pokemon {
@@ -24,6 +25,7 @@ class Pokemon {
     }
 };
 
+// Fetching de datos a la Pokeapi y meto todas las promesas en el array pokemonPromises:
 
 fetch(URL)
     .then(res => res.json())
@@ -69,8 +71,9 @@ fetch(URL)
             console.log(`%cTotal: ${total}`, "background: #00a");
             loader.style.display = "none";
             
-            POKEMONS_DATA_por_consola();
-            btn_funciones.btn_aleatorio();
+            POKEMONS_DATA_por_consola()     // <== Llamada
+            btn_funciones.btn_aleatorio()   // <== Llamada
+            //btn_funciones.btn_todos();
         })
         .catch(error => console.error("Error al obtener datos de los Pokémon:", error));
     })
@@ -79,24 +82,25 @@ fetch(URL)
 export { POKEMONS_DATA };
 
 
-//-->consola - llamadas(2)
-function POKEMONS_DATA_por_consola() {
-    console.log("%cpokemon 1024 - Terápagos " + "%c- limpio: ", "color:#ff0", "color:#9f9; text-shadow:0 0 8px #0f0", POKEMONS_DATA[1024]);
-    console.log(`POKEMONS_DATA type:`, typeof POKEMONS_DATA);
-    console.log("isArray:", Array.isArray(POKEMONS_DATA))
-    console.log("%cPOKEMONS_DATA: ", "font-weight: bold; text-shadow: 1px 1px 8px #0f0", POKEMONS_DATA);
-    console.log("%cTotal: " + Object.values(POKEMONS_DATA).length, "background: #00a");
-};
+ // Llamada para INFO > Pokemon de prueba Terápagos limpio, el tipo, el objeto PODEMONS_DATA lleno y limpio tb, y la cantidad.):
+    function POKEMONS_DATA_por_consola() {
+        console.log("%cpokemon 1024 - Terápagos " + "%c- limpio: ", "color:#ff0", "color:#9f9; text-shadow:0 0 8px #0f0", POKEMONS_DATA[1024]);
+      //console.log(`POKEMONS_DATA type:`, typeof POKEMONS_DATA);
+        console.log("%cPOKEMONS_DATA: ", "font-weight: bold; text-shadow: 1px 1px 8px #0f0", POKEMONS_DATA);
+        console.log("%cTotal: " + Object.values(POKEMONS_DATA).length, "background: #00a");
+    };
+ 
 
 $nav_container.addEventListener('click', (event) => {
     if (event.target.tagName === "BUTTON"){
         const type = event.target.id;
-        const pulsado = `btn_${type}`;
+        console.log("Botón ID: ", type); //=> Por consola
+        const pulsada = `btn_${type}`;
         
-        typeof btn_funciones[pulsado] === 'function'
-         ? btn_funciones[pulsado]()
-          : alert("Función del botón no encontrada", pulsado);
+        typeof btn_funciones[pulsada] === 'function'
+         ? btn_funciones[pulsada]()
+          : alert("Función del botón no encontrada", pulsada);
     }
 });
 
-let ToDo = "Vale, ahora tengo que crear el resto de funciones en btn_funciones de funciones.js";
+let ToDo = "Vale, ahora tengo que crear el resto de funciones en btn_funciones de funciones.js y configurar los gritos"

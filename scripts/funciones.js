@@ -1,10 +1,10 @@
 import { POKEMONS_DATA } from './main.js';
-import { pinta_lista } from './pinta_lista.js';
+import { pinta_lista, $lista_pokemon } from './pinta_lista.js';
+
 
 export const btn_funciones = {
 
     btn_aleatorio: function() {
-        
         const aleatorios = [];
         const keys = Object.keys(POKEMONS_DATA);
         const totalPokemons = keys.length;
@@ -15,15 +15,33 @@ export const btn_funciones = {
 
             if (!aleatorios.includes(pokemonId)) {
                 aleatorios.push(pokemonId)
-                // aleatorios.sort((a, b) => a - b);
+                // aleatorios.sort((a, b) => a - b); LUEGO LO PONDRÉ
             }
         }
-        //=>Por consola
-        console.log(`%c${aleatorios.length} ` + "Pokémon aleatorios", "color:#0ff");
+        //=>info por consola
+        console.log(`%c${aleatorios.length} ` + "Pokémon", "color:#0ff");
 
-        const $lista_pokemon = document.querySelector('#lista_pokemon');
         $lista_pokemon.innerHTML = "";
-        aleatorios.forEach((pokemonId) => pinta_lista(pokemonId));
+        aleatorios.forEach((pokemonId) => pinta_lista(pokemonId))
+        ;
+    },
+
+
+    btn_todos: function() {
+        $lista_pokemon.innerHTML = ""
+        
+        const Terápagos = POKEMONS_DATA[1024]
+        //console.log(Terápagos)
+        pinta_lista(Terápagos.id)
+
+        for (const pokemon of POKEMONS_DATA) {
+
+            if(pokemon){
+            let pokemonId = pokemon.id
+            
+            pinta_lista(pokemonId)
+            }
+        };
     },
     // + funciones
 
