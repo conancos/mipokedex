@@ -29,13 +29,13 @@ export function obtenerAnimacion(pokemon) {
     } else if (pokemon.sprites.front_shiny !== null){
         animacion = pokemon.sprites.front_shiny;
     } else {
-        animacion = "./assets/Pikachu_HOME.webp"
-    }
-    return animacion
+        animacion = "./assets/Pikachu_HOME.webp";
 }
+    return animacion
+};
 
 // Sacar el array de Tipos:
 export function obtenerTipos(pokemon) {
     const tipos = pokemon.types.map(tipo => tipo.type.name);
-    return tipos;
-}
+    return tipos
+};

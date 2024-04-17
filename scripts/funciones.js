@@ -1,4 +1,4 @@
-import { POKEMONS_DATA } from './main.js';
+import { POKEMONS_DATA, loader } from './main.js';
 import { pinta_lista, $lista_pokemon } from './pinta_lista.js';
 
 
@@ -28,8 +28,10 @@ export const btn_funciones = {
 
 
     btn_todos: function() {
-        $lista_pokemon.innerHTML = ""
         
+        loader.style.display = "block";
+        
+        $lista_pokemon.innerHTML = ""
         const Terápagos = POKEMONS_DATA[1024]
         //console.log(Terápagos)
         pinta_lista(Terápagos.id)

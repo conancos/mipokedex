@@ -1,6 +1,6 @@
 import { POKEMONS_DATA, loader } from './main.js';
 export const $lista_pokemon = document.getElementById('lista_pokemon');
-
+// export const $container_img = document.querySelector('.container-img')
 
 export function pinta_lista(pokemonId) {
 
@@ -13,15 +13,15 @@ export function pinta_lista(pokemonId) {
     let {id, name, img, grito1, grito2, tipos, ataque, defensa, animacion, altura, peso } = pokemon
 ;
     
-        // separamos los tipos
-    let extraerTipos = tipos.map(tipo => {
+        //separación de los tipos:
+    let tipo = tipos.map(tipo => {
         let tipoId = document.getElementById(`${tipo}`).innerHTML;
         return `<p class=${tipo}>${tipoId}</p>`
     })
-    extraerTipos = extraerTipos.join('')
+    tipo = tipo.join('')
 ;
 
-        //Crea y da clase y el contenido, falta el appendChild() cuando termine de pintarlo.
+        //Crea y da clase y contenido, falta el appendChild(), cuando termine de pintarlo.
     const article = document.createElement("article");
     article.classList.add("container-card");
     //💥
@@ -40,7 +40,7 @@ export function pinta_lista(pokemonId) {
                 <p class="habilidad">${defensa} <strong>🛡</strong></p>
             </div>
             <div class="tipos">
-                ${extraerTipos}
+                ${tipos}
             </div>
         </section>
         <footer>
@@ -67,10 +67,9 @@ export function pinta_lista(pokemonId) {
         pokeImage.addEventListener('mouseleave', () => {
             event.target.src = img;
         })
-    })
-;
+    });
 
-//Gritos de guerra en el juego.
+    // Gritos de guerra en el juego.
     const botonGrito1 = article.querySelector('.grito1');
     const botonGrito2 = article.querySelector('.grito2');
     botonGrito1.addEventListener('click', () => {
@@ -78,8 +77,7 @@ export function pinta_lista(pokemonId) {
         audioGrito1.src = botonGrito1.dataset.sound1;
         audioGrito1.load();
         audioGrito1.play();
-    });
-
+    })
     botonGrito2.addEventListener('click', () => {
         const audioGrito2 = new Audio();
         if (grito2 == null) {
