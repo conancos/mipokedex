@@ -1,16 +1,12 @@
 import {obtenerImg, obtenerAnimacion, obtenerTipos} from "./poke-media.js";
 import {btn_funciones} from "./funciones.js";
-
+import { pinta_lista } from "./pinta_lista.js";
 const URL = "https://pokeapi.co/api/v2/pokemon/";
-const POKEMONS_DATA = [];
+const POKEMONS_DATA = {};
 export const loader = document.getElementById('loader');
-//const $btn_tipo = document.querySelector('.btnTipo');
-//const $btn_container = document.querySelectorAll('.btn-container');
-//export const $container_img = document.querySelector('.container-img');
 const $nav_container = document.querySelector('#nav-container');
 
 class Pokemon {
-
     constructor(id, name, img, grito1, grito2, animacion, ataque, defensa, tipos, altura, peso) {
         this.id = id;
         this.name = name;
@@ -26,32 +22,46 @@ class Pokemon {
     }
 };
 
-// Fetching de datos a la Pokeapi y meto todas las promesas en el array pokemonPromises:
+// Array de 1301 elementos para sacar 40 id's aleatorios:
+let elementosParte1 = Array.from({length: 1025}, (_indice, elemento) => elemento + 1);
+let elementosParte2 = Array.from({length: 10277 - 10001 + 1}, (_indice, elemento) => elemento + 10001);
+let elementos1301 = elementosParte1.concat(elementosParte2);
+
+const elementosAleatorios40 = [];
+while(elementosAleatorios40.length < 40) {
+    const indiceAleatorio = Math.floor(Math.random() * elementos1301.length);
+    if(!elementosAleatorios40.includes(indiceAleatorio)) {
+        elementosAleatorios40.push(indiceAleatorio)
+    }
+}
+const muestra40 = elementosAleatorios40.sort((a, b) => a - b);
+console.log(`Muestra40 ${muestra40}`);
+// final del "componente"
+
+// Fetching de datos:
 
 fetch(URL)
     .then(res => res.json())
     .then(data => {
-        //---consola:
-        console.log("%cDATA: ", "font-weight: bold; text-shadow: 1px 1px 8px #0ff", data)
         
+        console.log("%cDATA: ", "font-weight: bold; text-shadow: 1px 1px 8px #0ff", data)
         loader.style.display = "block";
-        let pokemonPromises = [];
-             
-            for (let i = 1; i <= 1025/* hacerlo "actualizable" */; i++) {
-                pokemonPromises.push(fetch(URL + i).then(res => res.json()));
-            };
-            for (let j = 10001; j <= 10277/* hacerlo "actualizable" */; j++) {
-                pokemonPromises.push(fetch(URL + j).then(res => res.json()));
-            };
 
+        let pokemonPromises = [];
+        let allDataLoaded = false;
+             
+        for (let i = 0; i < muestra40.length; i++) {
+            pokemonPromises.push(fetch(URL + elementos1301[muestra40[i]]).then(res => res.json()))
+        }
+        
         Promise.all(pokemonPromises)
-        .then(pokemons => {
+        .then(DATA => {
             let total = 0; 
-        //---consola:
-            console.log("%cpokemon 1024 - Terápagos " + "%c- desde la promesa: ", "color:#ff0", "color:#f99; text-shadow:0 0 8px #f00", pokemons[1023]);
-          //console.log("%cPROMESAS: ", "font-weight: bold; text-shadow: 1px 1px 8px #f00", pokemonPromises)
+        
+            console.log("%cpokemon 1024 - Terápagos " + "%c- desde la promesa: ", "color:#ff0", "color:#f99; text-shadow:0 0 8px #f00", DATA[1023]);
+            console.log("%cPROMESAS: ", "font-weight: bold; text-shadow: 1px 1px 8px #f00", pokemonPromises)
             
-            pokemons.forEach(pokemon => {
+            DATA.forEach(pokemon => {
                 const pokemonInstance = new Pokemon (
                     pokemon.id,
                     pokemon.name,
@@ -67,14 +77,20 @@ fetch(URL)
                 );
                 total++;                
                 POKEMONS_DATA[pokemonInstance.id] = pokemonInstance;
+                pinta_lista(pokemonInstance.id)
             });
-            //--->consola:
-            console.log(`%cTotal: ${total}`, "background: #00a");
-            loader.style.display = "none";
+
+            allDataLoaded = true;
+            if (allDataLoaded) {
+                console.log(`%cTotal: ${total}`, "background: #00a");
+                loader.style.display = "none";
+                
+                POKEMONS_DATA_por_consola()
+                //btn_funciones.btn_aleatorio(POKEMONS_DATA[pokemon.id])
+            } else {
+                alert("No se han podido cargar los pokémon, Api fail.")
+            };
             
-            POKEMONS_DATA_por_consola()     // <== Llamada
-            btn_funciones.btn_aleatorio()   // <== Llamada
-            //btn_funciones.btn_todos();
         })
         .catch(error => console.error("Error al obtener datos de los Pokémon:", error));
     })
@@ -82,13 +98,14 @@ fetch(URL)
 export { POKEMONS_DATA };
 
 
-    // Llamada INFO:
+// Llamada INFO:
 function POKEMONS_DATA_por_consola() {
     console.log("%cpokemon 1024 - Terápagos " + "%c- limpio: ", "color:#ff0", "color:#9f9; text-shadow:0 0 8px #0f0", POKEMONS_DATA[1024]);
-  //console.log(`POKEMONS_DATA type:`, typeof POKEMONS_DATA);
-  //console.log("%cPOKEMONS_DATA: ", "font-weight: bold; text-shadow: 1px 1px 8px #0f0", POKEMONS_DATA);
+    console.log("Is array? ", Array.isArray(POKEMONS_DATA));
+    console.log("%cPOKEMONS_DATA: ", "font-weight: bold; text-shadow: 1px 1px 8px #0f0", POKEMONS_DATA);
     console.log("%cTotal: " + Object.values(POKEMONS_DATA).length, "background: #00a");
 };
+
 
     // Delegación de eventos:
 $nav_container.addEventListener('click', (event) => {

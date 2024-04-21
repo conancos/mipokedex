@@ -306,7 +306,7 @@ main.main {
             text-align: center;
         }
 
-        & section {
+        & main {
             width: 100%;
             
             & figure.container-img {

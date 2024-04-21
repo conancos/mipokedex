@@ -1,6 +1,6 @@
 // la api "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
+// Para el Array [POKEMONS_DATA]:
 
-// Sacar la Imagen:
 export function obtenerImg(pokemon) {
     let img;
     if(pokemon.sprites.other["official-artwork"].front_default !== null){
@@ -14,8 +14,8 @@ export function obtenerImg(pokemon) {
     }
     return img
 };
+// la Imagen:
 
-// Sacar la Animación:
 export function obtenerAnimacion(pokemon) {
     let animacion;
     if(pokemon.sprites.other.showdown.front_default !== null){
@@ -33,9 +33,12 @@ export function obtenerAnimacion(pokemon) {
 }
     return animacion
 };
+// la Animación:
 
-// Sacar el array de Tipos:
+
 export function obtenerTipos(pokemon) {
-    const tipos = pokemon.types.map(tipo => tipo.type.name);
+    let tipos = pokemon.types.map(tipo => tipo.type.name);
+
     return tipos
 };
+// el Array de tipos:

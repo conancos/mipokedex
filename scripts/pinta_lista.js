@@ -2,9 +2,12 @@ import { POKEMONS_DATA, loader } from './main.js';
 export const $lista_pokemon = document.getElementById('lista_pokemon');
 // export const $container_img = document.querySelector('.container-img')
 
+
 export function pinta_lista(pokemonId) {
 
-    loader.style.display = "block"; // Parece que no se ve, después del de la introducción.
+    loader.style.display = "block"; 
+    //pokebola
+    
     const pokemon = POKEMONS_DATA[pokemonId];
     if (!pokemon) {
         console.error('No se encontró ningún Pokémon con el ID ${pokemonId}')
@@ -13,15 +16,16 @@ export function pinta_lista(pokemonId) {
     let {id, name, img, grito1, grito2, tipos, ataque, defensa, animacion, altura, peso } = pokemon
 ;
     
-        //separación de los tipos:
+    //pinto los tipos:
     let tipo = tipos.map(tipo => {
-        let tipoId = document.getElementById(`${tipo}`).innerHTML;
-        return `<p class=${tipo}>${tipoId}</p>`
+        
+        const tipoSP = document.getElementById(tipo).textContent;
+        return `<p class=${tipo}>${tipoSP}</p>`
     })
     tipo = tipo.join('')
 ;
 
-        //Crea y da clase y contenido, falta el appendChild(), cuando termine de pintarlo.
+    //Crea y da clase y contenido, falta el appendChild(), cuando termine de pintarlo.
     const article = document.createElement("article");
     article.classList.add("container-card");
     //💥
@@ -31,7 +35,7 @@ export function pinta_lista(pokemonId) {
             <h2>${name.toUpperCase()}</h2>
             <span># ${id.toString().padStart(5, 0)}</span>
         </header>
-        <section>
+        <main>
             <figure class="container-img">
                 <img src="${img}" alt="Imagen de ${name}" loading="lazy"/>
             </figure>
@@ -40,9 +44,9 @@ export function pinta_lista(pokemonId) {
                 <p class="habilidad">${defensa} <strong>🛡</strong></p>
             </div>
             <div class="tipos">
-                ${tipos}
+                ${tipo}
             </div>
-        </section>
+        </main>
         <footer>
             <section class="grito-juego">
                 <button class="grito1 grito" data-sound1="${grito1}" title="Grito o sonido de ataque en el juego">GRITO</button>

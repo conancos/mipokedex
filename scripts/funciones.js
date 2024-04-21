@@ -22,27 +22,25 @@ export const btn_funciones = {
         console.log(`%c${aleatorios.length} ` + "Pokémon", "color:#0ff");
 
         $lista_pokemon.innerHTML = "";
-        aleatorios.forEach((pokemonId) => pinta_lista(pokemonId))
-        ;
+        aleatorios.forEach((pokemonId) => pinta_lista(pokemonId));
     },
 
 
     btn_todos: function() {
         
         loader.style.display = "block";
-        
         $lista_pokemon.innerHTML = ""
-        const Terápagos = POKEMONS_DATA[1024]
+
+        //const Terápagos = POKEMONS_DATA[1024]
         //console.log(Terápagos)
-        pinta_lista(Terápagos.id)
+        //pinta_lista(Terápagos.id)
 
-        for (const pokemon of POKEMONS_DATA) {
+        const pokemonsIds = Object.keys(POKEMONS_DATA);
+        
+        for (const pokemonId of pokemonsIds) {
 
-            if(pokemon){
-            let pokemonId = pokemon.id
-            
             pinta_lista(pokemonId)
-            }
+            
         };
     },
     // + funciones
