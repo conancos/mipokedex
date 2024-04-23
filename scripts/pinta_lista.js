@@ -6,7 +6,6 @@ export const $lista_pokemon = document.getElementById('lista_pokemon');
 export function pinta_lista(pokemonId) {
 
     loader.style.display = "block"; 
-    //pokebola
     
     const pokemon = POKEMONS_DATA[pokemonId];
     if (!pokemon) {
@@ -20,7 +19,7 @@ export function pinta_lista(pokemonId) {
     let tipo = tipos.map(tipo => {
         
         const tipoSP = document.getElementById(tipo).textContent;
-        return `<p class=${tipo}>${tipoSP}</p>`
+        return `<p class=${tipo}>${tipoSP.toLocaleUpperCase()}</p>`
     })
     tipo = tipo.join('')
 ;
@@ -40,7 +39,7 @@ export function pinta_lista(pokemonId) {
                 <img src="${img}" alt="Imagen de ${name}" loading="lazy"/>
             </figure>
             <div class="habilidades">
-                <p class="habilidad"><strong>⚔</strong> ${ataque}</p>
+                <p class="habilidad"><strong>🗡</strong> ${ataque}</p>
                 <p class="habilidad">${defensa} <strong>🛡</strong></p>
             </div>
             <div class="tipos">

@@ -120,7 +120,7 @@ header.header-pokeapi {
                     filter: drop-shadow(0 0 2px #0ff);
                     backdrop-filter: brightness(130%);
                 }                
-                & .btnTipo/* , .especial  */{
+                & .btnTipo, .btnAleatorio, .btnVistos/* , .especial  */{
                     color: inherit;
                     min-width: 60px;
                     border: 2px;
@@ -355,6 +355,7 @@ main.main {
                 padding-block: 2px;
                 padding-inline: .1rem;
                 margin: auto;
+                margin-bottom: 6px;
                 width: auto;
                 max-width: 250px;
                 font-size: 1.2rem;
@@ -369,7 +370,7 @@ main.main {
                 justify-content: center;
                 column-gap: 20px;
                 flex-wrap: wrap;
-                margin-bottom: 4px;
+                margin-bottom: 8px;
                 
                 @media(width < 320px) {
                     width: 100%;

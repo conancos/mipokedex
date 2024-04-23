@@ -9,3 +9,4 @@ btnTipo.forEach(boton => {
         eve.target.parentElement.classList.add("active");
     })
 });
+

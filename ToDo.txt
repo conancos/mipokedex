@@ -23,11 +23,13 @@
 
 - TO DO - LISTA POR HACER:
     [✅] VISTA ALEATORIA, al entrar en la POKÉDEX.
+    [✅] Activar botón Aleatorio para mostrar 40.
+    [✅] Ir llenando POKEMONS_DATA con los pokemons, y activar botón VISTOS, para mostrar los que hay en local.
     [✅] BARRA SCROLL: Personalizada.
     [✅] CURSOR: default, para las nombres y los tipos en las cards.
     [✅] NOMBRE DE TIPOS(CARDS), traer los tipos del inglés pero ponerlos en español.
     [✅] LOADER: "Cargando..." la poqueBola.
-    [✅] PAGINACIÓN: con la PokeBola para ir al Top (inicio).
+    [✅] PAGINACIÓN: con la PokeBola o la cola de Pikachu, para ir al Top (inicio).
     [  ] BARRA DE BÚSQUEDA: en nav parte derecha.
     [  ] LOGO CONANCOS.DEV: en nav parte izquierda.
     [  ] FOOTER: en body "make it with ❤🙌🤙 Hazte con todos!"
@@ -39,5 +41,5 @@
     [✅] Deshacer los eventos de escucha en el forEach de cada botón pues consume memoria, usar Delegación de propagación en contenedor padre.
     [✅] Construir función y meter las funciones de los botones como propiedades, así podré llamarlas por el nombre dinámicamente.
     [✅] Configurar los gritos para las cards.
-    [  ] Construir el resto de funciones que representan las llamadas fetch para el resto de botones.
-    [  ] El acceso más rápido a la lista de pokémon por tipo o generación.
+    [✅] Funciones fetch para los tipos.
+    [  ] Funciones fetch para las generaciones.
