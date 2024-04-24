@@ -1,12 +1,13 @@
 // Los pokémon van desde:
-    1ª Gen. =>      1 / 151 
-    2ª Gen. =>    151 /
-    3ª Gen. =>        /
-    4ª Gen. =>        /
-    5ª Gen. =>        /
-    6ª Gen. =>        /
-    7ª Gen. =>        /
-    8ª Gen. =>        / 1025
+    1ª Gen. =>      1 / 151 Kanto
+    2ª Gen. =>    152 / 251 Johto
+    3ª Gen. =>    252 / 386 Hoenn
+    4ª Gen. =>    387 / 493 Sinnoh
+    5ª Gen. =>    494 / 649 Teselia
+    6ª Gen. =>    650 / 721 Kalos
+    7ª Gen. =>    722 / 809 Alola
+    8ª Gen. =>    810 / 898 Galar
+    9ª Gen. =>    899 / 1025 Paldea
     Especial=>  10001 / 10277
     
     Hasta el 1025. => hasta el 920 tienen animación. 1025 - 920 = 105 últimos no.
@@ -30,10 +31,10 @@
     [✅] NOMBRE DE TIPOS(CARDS), traer los tipos del inglés pero ponerlos en español.
     [✅] LOADER: "Cargando..." la poqueBola.
     [✅] PAGINACIÓN: con la PokeBola o la cola de Pikachu, para ir al Top (inicio).
-    [  ] BARRA DE BÚSQUEDA: en nav parte derecha.
-    [  ] LOGO CONANCOS.DEV: en nav parte izquierda.
-    [  ] FOOTER: en body "make it with ❤🙌🤙 Hazte con todos!"
-    [❌] CLICK EN LOADER, cambia de color => azul/blanco => rojo/blonco.
+    [❓] BARRA DE BÚSQUEDA: en nav parte derecha.
+    [❓] LOGO CONANCOS.DEV: en nav parte izquierda.
+    [❓] FOOTER: en body "make it with ❤🙌🤙 Hazte con todos!"
+    [❓] CLICK EN LOADER, cambia de color => azul/blanco => rojo/blonco.
     [✅] MANEJO DE ERRORES: Para cuando no hay animación ó 2º grito.
     [✅] BOTONES: 1ª Generación, 2ª Gen. 3ª, 4ª, 5ª, 6ª, 7ª, 8ª, 9ª! y los 10001 al 10277
     [✅] SUBIR: a gitHub, y al servidor.
@@ -42,4 +43,6 @@
     [✅] Construir función y meter las funciones de los botones como propiedades, así podré llamarlas por el nombre dinámicamente.
     [✅] Configurar los gritos para las cards.
     [✅] Funciones fetch para los tipos.
-    [  ] Funciones fetch para las generaciones.
+    [✅] Funciones fetch para las generaciones.
+    [🕒] MEDIA QUERY para disminuir el tamaño de los nombres largos compuestos.
+    [🕒] SIMPLIFICAR códito, pasando parámetros a la función deInicio(inicia, finaliza, )

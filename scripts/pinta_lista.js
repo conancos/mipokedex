@@ -16,10 +16,12 @@ export function pinta_lista(pokemonId) {
 ;
     
     //pinto los tipos:
+    if(!Array.isArray(tipos)) {
+        tipos = [tipos];
+    };
     let tipo = tipos.map(tipo => {
-        
-        const tipoSP = document.getElementById(tipo).textContent;
-        return `<p class=${tipo}>${tipoSP.toLocaleUpperCase()}</p>`
+        let tipoSP = document.getElementById(tipo).innerText;
+        return `<p class=${tipo}>${tipoSP.toUpperCase()}</p>`
     })
     tipo = tipo.join('')
 ;

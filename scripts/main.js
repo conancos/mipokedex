@@ -1,7 +1,7 @@
 import {obtenerImg, obtenerAnimacion, obtenerTipos} from "./poke-media.js";
 import {btn_funciones} from "./funciones.js";
 import { pinta_lista } from "./pinta_lista.js";
-const URL = "https://pokeapi.co/api/v2/pokemon/";
+export const URL = "https://pokeapi.co/api/v2/pokemon/";
 const POKEMONS_DATA = [];
 export const loader = document.getElementById('loader');
 const $nav_container = document.querySelector('#nav-container');
@@ -97,20 +97,31 @@ export function POKEMONS_DATA_por_consola() {
 
 // Delegación de eventos:
 $nav_container.addEventListener('click', (event) => {
-    const type = event.target.id;
-    const pulsada = `btn_${type}`;
-
+    
+    const typeId = event.target.id;
+    const btn_type = `btn_${typeId}`;
+    
+        //aleatorio y vistos:
     if (event.target.tagName === "BUTTON" && event.target.classList.contains('action')){
-        console.log("id pulsada: ", type);
-        btn_funciones[pulsada]();
+        console.log("ID   :", typeId);
+        btn_funciones[btn_type]();
+    
+        //type ID:
     } else if (event.target.tagName === "BUTTON" && event.target.classList.contains('type')){
-        console.log("id pulsada: ", type);
-        btn_funciones.btn_tipos(type)
-    }else if (event.target.tagName === "BUTTON"){
+        console.log("ID   :", typeId);
+        btn_funciones.btn_tipos(typeId)
+    
+        //
+    } else if (event.target.tagName === "BUTTON" && event.target.classList.contains('generations')){
+        let gen = event.target.id
+        btn_funciones.btn_generaciones(gen)
+    
+    
+    } /* else if (event.target.tagName === "BUTTON"){
         console.log("Botón desactivado");
         alert("Función desactivada por mantenimiento.", event.target);
-    }
-    //Si el evento es botón y 
+    } */
+    
 });
 
 

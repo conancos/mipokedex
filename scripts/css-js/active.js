@@ -4,7 +4,7 @@ const btnLi = document.querySelectorAll('.tipos');
 btnTipo.forEach(boton => {
     boton.addEventListener('click', (eve) => {
         // X consola \ Remuevo clase .active \ Y le hago objetivo al padre y le doy la clase.
-        console.log("Botón activo", eve.target.innerText);
+        console.log("Botón:", eve.target.innerText);
         btnLi.forEach(li => li.classList.remove('active'));
         eve.target.parentElement.classList.add("active");
     })
