@@ -45,4 +45,5 @@
     [✅] Funciones fetch para los tipos.
     [✅] Funciones fetch para las generaciones.
     [🕒] MEDIA QUERY para disminuir el tamaño de los nombres largos compuestos.
-    [🕒] SIMPLIFICAR códito, pasando parámetros a la función deInicio(inicia, finaliza, )
+    [🕒] SIMPLIFICAR códito, pasando parámetros a la función deInicio(inicia, finaliza,)
+    [  ] DAR RETRASO AL BOTÓN <Vistos>
