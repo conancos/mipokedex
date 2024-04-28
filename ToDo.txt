@@ -3,11 +3,11 @@
     2ª Gen. =>    152 / 251 Johto
     3ª Gen. =>    252 / 386 Hoenn
     4ª Gen. =>    387 / 493 Sinnoh
-    5ª Gen. =>    494 / 649 Teselia
+    5ª Gen. =>    494 / 649 Unova/Teselia
     6ª Gen. =>    650 / 721 Kalos
     7ª Gen. =>    722 / 809 Alola
     8ª Gen. =>    810 / 898 Galar
-    9ª Gen. =>    899 / 1025 Paldea
+    9ª Gen. =>    899 / 1025 Paldea/Hisui
     Especial=>  10001 / 10277
     
     Hasta el 1025. => hasta el 920 tienen animación. 1025 - 920 = 105 últimos no.
@@ -46,4 +46,4 @@
     [✅] Funciones fetch para las generaciones.
     [🕒] MEDIA QUERY para disminuir el tamaño de los nombres largos compuestos.
     [🕒] SIMPLIFICAR códito, pasando parámetros a la función deInicio(inicia, finaliza,)
-    [  ] DAR RETRASO AL BOTÓN <Vistos>
+    [  ] DAR RETRASO AL BOTÓN para evitar pulsaciones repetitivas<Vistos>
