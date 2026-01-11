@@ -117,3 +117,8 @@
 .habilidad {
     text-shadow: 0 0 8px #ddc;
 }
+
+.loader-evolution {
+    background: radial-gradient(var(--text-black), var(--amarillo-pokemon));
+    background: radial-gradient(var(--text-black), var(--type-electric));
+}

@@ -30,7 +30,17 @@ export const btn_funciones = {
     btn_vistos() {
         $lista_pokemon.innerHTML = ""
         loader.style.display = "block";
-        
+        if(loader) {
+            const containerImages = document.querySelectorAll('.container-image');
+
+            loader.addEventListener('click', () => {
+                console.log('Loader clicked');
+                 containerImages.forEach(container => {
+                    console.log('Toggling class on container:', container);
+                    container.classList.toggle('loader-evolution');
+                })
+            });
+        }
         const pokemonsIds = Object.keys(POKEMONS_DATA);
         console.log(pokemonsIds.length);
         for (const pokemonId of pokemonsIds) {
@@ -43,7 +53,17 @@ export const btn_funciones = {
         //console.log(typeId)
         $lista_pokemon.innerHTML = "";
         loader.style.display = "block";
+        if(loader) {
+            const containerImages = document.querySelectorAll('.container-image');
 
+            loader.addEventListener('click', () => {
+                console.log('Loader clicked');
+                 containerImages.forEach(container => {
+                    console.log('Toggling class on container:', container);
+                    container.classList.toggle('loader-evolution');
+                })
+            });
+        }
         fetch(URL_TYPE + typeId).then(res => res.json()).then(data => {
             //console.log(data);
             let pokemonPromises = [];
@@ -99,7 +119,17 @@ export const btn_funciones = {
         console.log("Generación: ", gen);
         $lista_pokemon.innerHTML = "";
         loader.style.display = "block";
+        if(loader) {
+            const containerImages = document.querySelectorAll('.container-image');
 
+            loader.addEventListener('click', () => {
+                console.log('Loader clicked');
+                 containerImages.forEach(container => {
+                    console.log('Toggling class on container:', container);
+                    container.classList.toggle('loader-evolution');
+                })
+            });
+        }
         fetch(URL)
         .then(res => res.json())
         .then(data => {

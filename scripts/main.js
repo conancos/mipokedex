@@ -35,7 +35,18 @@ export function deInicio() {
         
         console.log("%cDATA: ", "font-weight: bold; text-shadow: 1px 1px 8px #0ff", data)
         loader.style.display = "block";
+        if(loader) {
+            const containerImages = document.querySelectorAll('.container-image');
 
+            loader.addEventListener('click', () => {
+                console.log('Loader clicked');
+                 containerImages.forEach(container => {
+                    console.log('Toggling class on container:', container);
+                    container.classList.toggle('loader-evolution');
+                })
+            });
+        }
+        
         let pokemonPromises = [];
         let allDataLoaded = false;
 
@@ -139,14 +150,4 @@ const getScrollPosition = () => {
         document.getElementById('body').className = '';
     }
 }
-
-
-
-
-
-
-
-
-
-
 

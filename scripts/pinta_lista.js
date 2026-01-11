@@ -6,7 +6,17 @@ export const $lista_pokemon = document.getElementById('lista_pokemon');
 export function pinta_lista(pokemonId) {
 
     loader.style.display = "block"; 
-    
+    if(loader) {
+        const containerImages = document.querySelectorAll('.container-image');
+
+        loader.addEventListener('click', () => {
+            console.log('Loader clicked');
+             containerImages.forEach(container => {
+                console.log('Toggling class on container:', container);
+                container.classList.toggle('loader-evolution');
+            })
+        });
+    }
     const pokemon = POKEMONS_DATA[pokemonId];
     if (!pokemon) {
         console.error('No se encontró ningún Pokémon con el ID ${pokemonId}')
